@@ -34,7 +34,6 @@ function SearchBar({ submit }) {
       const resp = await fetch(
         `https://api.github.com/users/${userName}/repos`
       );
-      console.log(resp);
       if (!resp.ok) {
         setLoadingRepo(false);
         let err = await resp.json();

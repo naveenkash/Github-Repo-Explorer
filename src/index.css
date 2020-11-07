@@ -17,3 +17,10 @@ body {
   max-width: 1250px;
   padding: 0 10px;
 }
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
