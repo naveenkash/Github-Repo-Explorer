@@ -77,25 +77,23 @@ function SearchBar({ submit }) {
 
   return (
     <div className="search-bar-wrapper">
-      <div className="container">
-        <div className="search-bar">
-          <input
-            ref={inputRef}
-            placeholder="Search by github username"
-            value={userName}
-            onChange={(e) => {
-              inputOnChangeHandler(e);
-            }}
-          />
-          <div
-            onClick={() => {
-              submitHandler();
-            }}
-          >
-            <Button loading={loadingRepo} text={"Search"} />
-          </div>
-          {error ? <span>{error}</span> : null}
+      <div className="search-bar">
+        <input
+          ref={inputRef}
+          placeholder="Search by github username"
+          value={userName}
+          onChange={(e) => {
+            inputOnChangeHandler(e);
+          }}
+        />
+        <div
+          onClick={() => {
+            submitHandler();
+          }}
+        >
+          <Button loading={loadingRepo} text={"Search"} />
         </div>
+        {error ? <span>{error}</span> : null}
       </div>
     </div>
   );
