@@ -2,22 +2,22 @@ import React, { useState, useEffect } from "react";
 import RequestLoader from "./RequestLoader";
 import "../styles/Repo.css";
 import Owner from "./Owner";
+import SingleRepo from "./SingleRepo";
+import formatNumber from "../helper/formatNumber";
 
-function Repo({ repos }) {
+function Repo({ repos, userName }) {
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
   const [owner, setOwner] = useState(null);
   const [ownerLoading, setOwnerLoading] = useState(false);
   const [ownerError, setOwnerError] = useState(null);
-
-  const validRepos = repos && repos.length > 0;
-  const ownerDep = validRepos ? repos[0].owner : "";
+  const ownerDep = userName;
 
   useEffect(() => {
     async function fetchOwner() {
       setOwnerLoading(true);
       try {
-        const resp = await fetch(ownerDep.url);
+        const resp = await fetch(`https://api.github.com/users/${ownerDep}`);
         const fetchedOwner = await resp.json();
         if (!resp.ok) {
           setOwnerError(fetchedOwner ? fetchedOwner.message : "Error occurred");
@@ -35,20 +35,16 @@ function Repo({ repos }) {
       }
       setOwnerLoading(false);
     }
-    if (!isEmptyObject(ownerDep)) {
+    if (ownerDep) {
       fetchOwner();
     }
   }, [ownerDep]);
-
-  function isEmptyObject(obj) {
-    return Object.keys(obj).length === 0;
-  }
 
   return (
     <div className="repo-wrapper">
       <div className="container">
         <div className="owner-container">
-          {!validRepos ? <span>Search for github username</span> : null}
+          {!ownerDep ? <span>Search for github username</span> : null}
 
           {ownerLoading ? (
             <RequestLoader />
@@ -62,6 +58,12 @@ function Repo({ repos }) {
               fetchFollowing={setFollowing}
             />
           ) : null}
+        </div>
+
+        <div className="repo-container">
+          {repos
+            ? repos.map((repo) => <SingleRepo repo={repo} key={repo.id} />)
+            : null}
         </div>
       </div>
     </div>

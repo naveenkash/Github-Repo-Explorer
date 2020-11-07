@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import formatNumber from "../helper/formatNumber";
 
 function FollowBtns({ owner, onFollowers, onFollowing }) {
   const [followersLoading, setFollowersLoading] = useState(false);
@@ -45,26 +46,6 @@ function FollowBtns({ owner, onFollowers, onFollowing }) {
     setFollowingLoading(false);
   }
 
-  function formatFollower(num, digits) {
-    var si = [
-      { value: 1, symbol: "" },
-      { value: 1e3, symbol: "k" },
-      { value: 1e6, symbol: "M" },
-      { value: 1e9, symbol: "G" },
-      { value: 1e12, symbol: "T" },
-      { value: 1e15, symbol: "P" },
-      { value: 1e18, symbol: "E" },
-    ];
-    var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
-    var i;
-    for (i = si.length - 1; i > 0; i--) {
-      if (num >= si[i].value) {
-        break;
-      }
-    }
-    return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
-  }
-
   return (
     <div className="owner-followers">
       <div
@@ -74,7 +55,7 @@ function FollowBtns({ owner, onFollowers, onFollowing }) {
       >
         <Button
           load={followersLoading}
-          text={`Followers ${formatFollower(owner.followers, 1)}`}
+          text={`Followers ${formatNumber(owner.followers, 1)}`}
         />
       </div>
       <div
@@ -84,7 +65,7 @@ function FollowBtns({ owner, onFollowers, onFollowing }) {
       >
         <Button
           load={followingLoading}
-          text={`Following ${formatFollower(owner.following, 1)}`}
+          text={`Following ${formatNumber(owner.following, 1)}`}
         />
       </div>
     </div>

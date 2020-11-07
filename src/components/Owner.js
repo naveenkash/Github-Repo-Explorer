@@ -10,7 +10,7 @@ function Owner({ owner, fetchFollowers, fetchFollowing }) {
         </div>
         <div className="owner-details">
           <div className="owner-name">
-            <span>{owner.name}</span>
+            <span>{owner.name || owner.login}</span>
             <p>{owner.bio}</p>
           </div>
           <FollowBtn

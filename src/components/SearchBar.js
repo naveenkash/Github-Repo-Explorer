@@ -44,7 +44,7 @@ function SearchBar({ submit }) {
       if (error) {
         setError("");
       }
-      submit(fetchedRepos);
+      submit(fetchedRepos, userName);
     } catch (error) {
       setError(error.message);
     }

@@ -2,6 +2,38 @@
   margin-top: 70px;
   padding: 20px 10px;
 }
+.repo-container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.repo {
+  width: 50%;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.repo:hover {
+  background-color: var(--light-200);
+}
+.repo-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+}
+.repo-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.repo-detail {
+  width: 75%;
+}
 .owner-container {
   padding: 20px 0px;
   margin-bottom: 15px;
