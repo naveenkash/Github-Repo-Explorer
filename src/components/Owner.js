@@ -1,7 +1,7 @@
 import React from "react";
 import FollowBtn from "./FollowBtn";
 
-function Owner({ owner, fetchFollowers, fetchFollowing }) {
+function Owner({ owner }) {
   return (
     <div className="owner">
       <div className="owner-info">
@@ -13,11 +13,7 @@ function Owner({ owner, fetchFollowers, fetchFollowing }) {
             <span>{owner.name || owner.login}</span>
             <p>{owner.bio}</p>
           </div>
-          <FollowBtn
-            owner={owner}
-            onFollowers={fetchFollowers}
-            onFollowing={fetchFollowing}
-          />
+          <FollowBtn owner={owner} />
         </div>
       </div>
     </div>

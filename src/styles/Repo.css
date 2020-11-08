@@ -116,4 +116,5 @@
 }
 .owner-followers .btn {
   width: 140px;
+  cursor: default;
 }

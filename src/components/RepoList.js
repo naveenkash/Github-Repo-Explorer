@@ -7,8 +7,6 @@ import RepoDetail from "./RepoDetail";
 import Button from "./Button";
 
 function Repo({ repos, userName }) {
-  const [followers, setFollowers] = useState([]);
-  const [following, setFollowing] = useState([]);
   const [owner, setOwner] = useState(null);
   const [ownerLoading, setOwnerLoading] = useState(false);
   const [ownerError, setOwnerError] = useState(null);
@@ -70,8 +68,6 @@ function Repo({ repos, userName }) {
             <Owner
               owner={owner}
               ownerError={ownerError}
-              fetchFollowers={setFollowers}
-              fetchFollowing={setFollowing}
             />
           ) : null}
         </div>
