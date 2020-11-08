@@ -3,7 +3,8 @@ import RequestLoader from "./RequestLoader";
 import "../styles/Repo.css";
 import Owner from "./Owner";
 import SingleRepo from "./SingleRepo";
-import formatNumber from "../helper/formatNumber";
+import RepoDetail from "./RepoDetail";
+import Button from "./Button";
 
 function Repo({ repos, userName }) {
   const [followers, setFollowers] = useState([]);
@@ -11,6 +12,10 @@ function Repo({ repos, userName }) {
   const [owner, setOwner] = useState(null);
   const [ownerLoading, setOwnerLoading] = useState(false);
   const [ownerError, setOwnerError] = useState(null);
+  const [showRepoDetails, setShowRepoDetail] = useState(false);
+  const [showRepos, setShowRepos] = useState(true);
+  const [repoDetail, setRepoDetail] = useState(null);
+
   const ownerDep = userName;
 
   useEffect(() => {
@@ -40,6 +45,17 @@ function Repo({ repos, userName }) {
     }
   }, [ownerDep]);
 
+  function showRepoList() {
+    setShowRepoDetail(false);
+    setShowRepos(true);
+    setRepoDetail(null);
+  }
+  function showRepoDetail(repo) {
+    setShowRepoDetail(true);
+    setShowRepos(false);
+    setRepoDetail(repo);
+  }
+
   return (
     <div className="repo-wrapper">
       <div className="container">
@@ -61,9 +77,29 @@ function Repo({ repos, userName }) {
         </div>
 
         <div className="repo-container">
-          {repos
-            ? repos.map((repo) => <SingleRepo repo={repo} key={repo.id} />)
-            : null}
+          {repos && showRepos ? (
+            repos.map((repo) => (
+              <SingleRepo
+                repo={repo}
+                showRepoDetail={() => {
+                  showRepoDetail(repo);
+                }}
+                key={repo.id}
+              />
+            ))
+          ) : showRepoDetails ? (
+            <div>
+              <div
+                onClick={() => {
+                  showRepoList();
+                }}
+                className="repo-detail-back-btn"
+              >
+                <Button text={"Back"} />
+              </div>
+              <RepoDetail repoDetail={repoDetail} />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

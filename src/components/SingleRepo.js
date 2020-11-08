@@ -2,13 +2,18 @@ import React from "react";
 
 function SingleRepo({ repo, showRepoDetail }) {
   return (
-    <div className="repo">
+    <div
+      className="repo"
+      onClick={() => {
+        showRepoDetail();
+      }}
+    >
       <div className="repo-img">
         <img src={repo.owner ? repo.owner.avatar_url : ""} alt={repo.name} />
       </div>
       <div className="repo-detail">
         <span>
-          {repo.name}{" "}
+          <b>{repo.name}</b>{" "}
           {repo.fork ? (
             <span>
               <svg

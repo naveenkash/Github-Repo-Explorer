@@ -34,6 +34,50 @@
 .repo-detail {
   width: 75%;
 }
+.repo-detail h1 {
+  margin-top: 0;
+}
+.repo-detail h1 a {
+  color: var(--black-500);
+  text-decoration: none;
+}
+.repo-detail h1 a:hover {
+  color: var(--black-100);
+}
+.repo-side-detail {
+  width: 30%;
+  min-width: 240px;
+}
+.repo-side-detail .repo-img {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.repo-detail-wrapper {
+  width: 100%;
+  display: flex;
+}
+.repo-detail-count {
+  margin: 10px 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+.repo-detail-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.repo-detail-info.btn {
+  width: auto;
+  cursor: default;
+  height: auto;
+}
+.repo-detail-info svg {
+  margin-right: 5px;
+}
+.repo-detail-back-btn {
+  margin-bottom: 10px;
+}
+
 .owner-container {
   padding: 20px 0px;
   margin-bottom: 15px;

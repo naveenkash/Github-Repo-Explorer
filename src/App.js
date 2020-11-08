@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar";
-import Repo from "./components/Repo";
+import RepoList from "./components/RepoList";
 function App() {
   const [repos, setRepos] = useState(null);
   const [userName, setUserName] = useState("");
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar submit={saveRepos} />
-      <Repo repos={repos} userName={userName} />
+      <RepoList repos={repos} userName={userName} />
     </div>
   );
 }
