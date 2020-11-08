@@ -1,0 +1,22 @@
+.btn {
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid var(--black-500);
+  background-color: var(--black-100);
+  color: var(--light-200);
+  transition: 0.3s;
+  width: 70px;
+  height: 35px;
+  text-align: center;
+  margin-right: 12px;
+}
+
+.btn:hover {
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0px 3px 29px -4px var(--grey-100);
+  -moz-box-shadow: 0px 3px 29px -4px var(--grey-100);
+  box-shadow: 0px 3px 29px -4px var(--grey-100);
+}
+

@@ -1,0 +1,119 @@
+.repo-wrapper {
+  margin-top: 70px;
+  padding: 20px 10px;
+}
+.repo-container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.repo {
+  width: 50%;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.repo:hover {
+  background-color: var(--light-200);
+}
+.repo-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+}
+.repo-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.repo-detail {
+  width: 75%;
+}
+.repo-detail h1 {
+  margin-top: 0;
+}
+.repo-detail h1 a {
+  color: var(--black-500);
+  text-decoration: none;
+}
+.repo-detail h1 a:hover {
+  color: var(--black-100);
+}
+.repo-side-detail {
+  width: 30%;
+  min-width: 240px;
+}
+.repo-side-detail .repo-img {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.repo-detail-wrapper {
+  width: 100%;
+  display: flex;
+}
+.repo-detail-count {
+  margin: 10px 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+.repo-detail-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.repo-detail-info.btn {
+  width: auto;
+  cursor: default;
+  height: auto;
+}
+.repo-detail-info svg {
+  margin-right: 5px;
+}
+.repo-detail-back-btn {
+  margin-bottom: 10px;
+}
+
+.owner-container {
+  padding: 20px 0px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.owner-info {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.owner-img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.owner-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 3px 29px -4px var(--grey-100);
+  -moz-box-shadow: 0px 3px 29px -4px var(--grey-100);
+  box-shadow: 0px 3px 29px -4px var(--grey-100);
+}
+.owner-name {
+  margin-bottom: 15px;
+}
+.owner-name span {
+  font-size: 18px;
+}
+.owner-name p {
+  width: 280px;
+}
+.owner-followers {
+  display: flex;
+  align-items: center;
+}
+.owner-followers .btn {
+  width: 140px;
+}
