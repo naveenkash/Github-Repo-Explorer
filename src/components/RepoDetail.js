@@ -64,7 +64,7 @@ function RepoDetail({ repoDetail }) {
       </div>
       <div className="repo-detail">
         <h1>
-          <a href={repoDetail.html_url} target="_blank">
+          <a href={repoDetail.html_url} rel="noreferrer" target="_blank">
             {repoDetail.name}
           </a>
         </h1>
